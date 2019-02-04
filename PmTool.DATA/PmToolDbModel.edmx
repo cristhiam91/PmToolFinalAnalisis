@@ -1,0 +1,1776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProjectManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ConnectionTypes">
+          <Key>
+            <PropertyRef Name="Connection_type_id" />
+          </Key>
+          <Property Name="Connection_type_id" Type="int" Nullable="false" />
+          <Property Name="Connection_type_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DataCenters">
+          <Key>
+            <PropertyRef Name="DataCenter_request_id" />
+          </Key>
+          <Property Name="DataCenter_request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DataCenter_requestor_id" Type="int" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Assigned_pm" Type="int" />
+          <Property Name="Site_name" Type="varchar" MaxLength="50" />
+          <Property Name="Program_name" Type="varchar" MaxLength="50" />
+          <Property Name="Project_name" Type="varchar" MaxLength="50" />
+          <Property Name="Project_phase" Type="int" />
+          <Property Name="Request_date" Type="date" />
+          <Property Name="Expected_date" Type="date" />
+          <Property Name="Project_budget" Type="float" />
+          <Property Name="Project_type" Type="int" />
+          <Property Name="Square_footage" Type="float" />
+          <Property Name="DataCenter_name" Type="varchar" MaxLength="50" />
+          <Property Name="Scope" Type="int" />
+          <Property Name="Total_number_racks" Type="int" />
+          <Property Name="Total_number_ports_per_rack" Type="int" />
+          <Property Name="Total_number_copper_ports_per_racks" Type="int" />
+          <Property Name="Total_number_fiber_ports_per_rack" Type="int" />
+          <Property Name="Speed_connection" Type="int" />
+          <Property Name="Project_description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DcScopes">
+          <Key>
+            <PropertyRef Name="Dc_scope_id" />
+          </Key>
+          <Property Name="Dc_scope_id" Type="int" Nullable="false" />
+          <Property Name="Dc_scope_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FabScopes">
+          <Key>
+            <PropertyRef Name="Fab_scope_id" />
+          </Key>
+          <Property Name="Fab_scope_id" Type="int" Nullable="false" />
+          <Property Name="Fab_scope_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Factories">
+          <Key>
+            <PropertyRef Name="Factory_request_id" />
+          </Key>
+          <Property Name="Factory_request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Factory_requestor_id" Type="int" />
+          <Property Name="Assigned_pm" Type="int" />
+          <Property Name="Site_name" Type="varchar" MaxLength="50" />
+          <Property Name="Program_name" Type="varchar" MaxLength="50" />
+          <Property Name="Project_name" Type="varchar" MaxLength="50" />
+          <Property Name="Project_phase" Type="int" />
+          <Property Name="Request_date" Type="date" />
+          <Property Name="Expected_date" Type="date" />
+          <Property Name="Project_budget" Type="float" />
+          <Property Name="Project_type" Type="int" />
+          <Property Name="Factory_name" Type="varchar" MaxLength="50" />
+          <Property Name="Total_number_bays" Type="int" />
+          <Property Name="Total_number_ports_per_bay" Type="int" />
+          <Property Name="Total_number_copper_ports_per_bay" Type="int" />
+          <Property Name="Total_number_fiber_ports_per_bay" Type="int" />
+          <Property Name="Speed_connection" Type="int" />
+          <Property Name="Fab_type" Type="int" />
+          <Property Name="Square_footage" Type="float" />
+          <Property Name="Project_description" Type="varchar" MaxLength="100" />
+          <Property Name="Scope" Type="int" />
+        </EntityType>
+        <EntityType Name="Labs">
+          <Key>
+            <PropertyRef Name="Lab_request_id" />
+          </Key>
+          <Property Name="Lab_request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Lab_requestor_id" Type="int" />
+          <Property Name="Assigned_pm" Type="int" />
+          <Property Name="Site_name" Type="varchar" MaxLength="50" />
+          <Property Name="Program_name" Type="varchar" MaxLength="50" />
+          <Property Name="Project_name" Type="varchar" MaxLength="50" />
+          <Property Name="Project_phase" Type="int" />
+          <Property Name="Request_date" Type="date" />
+          <Property Name="Expected_date" Type="date" />
+          <Property Name="Project_budget" Type="float" />
+          <Property Name="Project_type" Type="int" />
+          <Property Name="Lab_name" Type="varchar" MaxLength="50" />
+          <Property Name="Scope" Type="int" />
+          <Property Name="Square_footage" Type="float" />
+          <Property Name="Total_number_racks" Type="int" />
+          <Property Name="Total_number_ports_per_rack" Type="int" />
+          <Property Name="Total_number_copper_ports_per_racks" Type="int" />
+          <Property Name="Total_number_fiber_ports_per_rack" Type="int" />
+          <Property Name="Total_number_benches" Type="int" />
+          <Property Name="Total_number_ports_per_bench" Type="int" />
+          <Property Name="Total_number_copper_ports_per_bench" Type="int" />
+          <Property Name="Total_number_fiber_ports_per_bench" Type="int" />
+          <Property Name="Speed_connection" Type="int" />
+          <Property Name="Project_description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LabScopes">
+          <Key>
+            <PropertyRef Name="Lab_scope_id" />
+          </Key>
+          <Property Name="Lab_scope_id" Type="int" Nullable="false" />
+          <Property Name="Lab_scope_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Offices">
+          <Key>
+            <PropertyRef Name="Office_request_id" />
+          </Key>
+          <Property Name="Office_request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Office_requestor_id" Type="int" />
+          <Property Name="Assigned_pm" Type="int" />
+          <Property Name="Site_name" Type="varchar" MaxLength="50" />
+          <Property Name="Program_name" Type="varchar" MaxLength="50" />
+          <Property Name="Project_name" Type="varchar" MaxLength="50" />
+          <Property Name="Project_phase" Type="int" />
+          <Property Name="Request_date" Type="date" />
+          <Property Name="Expected_date" Type="date" />
+          <Property Name="Project_budget" Type="float" />
+          <Property Name="Project_type" Type="int" />
+          <Property Name="Total_number_workstations" Type="int" />
+          <Property Name="Total_number_ports_per_workstation" Type="int" />
+          <Property Name="Speed_connection" Type="int" />
+          <Property Name="Total_number_workstation_copper_ports" Type="int" />
+          <Property Name="Total_number_workstation_fiber_ports" Type="int" />
+          <Property Name="Number_of_auditoriums" Type="int" />
+          <Property Name="Number_of_A_type_rooms" Type="int" />
+          <Property Name="Number_of_B_type_rooms" Type="int" />
+          <Property Name="Number_of_C_type_rooms" Type="int" />
+          <Property Name="Number_of_Collaboration_rooms" Type="int" />
+          <Property Name="Number_of_phonebooths" Type="int" />
+          <Property Name="Square_footage" Type="float" />
+          <Property Name="Project_description" Type="varchar" MaxLength="100" />
+          <Property Name="Scope" Type="int" />
+          <Property Name="Connection" Type="int" />
+        </EntityType>
+        <EntityType Name="OfficeScopes">
+          <Key>
+            <PropertyRef Name="Office_scope_id" />
+          </Key>
+          <Property Name="Office_scope_id" Type="int" Nullable="false" />
+          <Property Name="Office_scope_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OtherProjects">
+          <Key>
+            <PropertyRef Name="Other_request_id" />
+          </Key>
+          <Property Name="Other_request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Project_description" Type="varchar" MaxLength="100" />
+          <Property Name="Other_requestor_id" Type="int" />
+          <Property Name="Other_projectType" Type="int" />
+          <Property Name="Assigned_pm" Type="int" />
+        </EntityType>
+        <EntityType Name="PhaseTypes">
+          <Key>
+            <PropertyRef Name="Phase_id" />
+          </Key>
+          <Property Name="Phase_id" Type="int" Nullable="false" />
+          <Property Name="Phase_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PmProjectCost">
+          <Key>
+            <PropertyRef Name="Project_id" />
+          </Key>
+          <Property Name="Project_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Project_name" Type="varchar" MaxLength="50" />
+          <Property Name="Local_area_network_systems" Type="float" />
+          <Property Name="Wide_area_network" Type="float" />
+          <Property Name="Wireless_Lan_Infrastructure_equipment" Type="float" />
+          <Property Name="Indetification_for_com_systems" Type="float" />
+          <Property Name="Com_grounding" Type="float" />
+          <Property Name="Cable_Trays" Type="float" />
+          <Property Name="Handholes_and_manholes" Type="float" />
+          <Property Name="Com_cabinets" Type="float" />
+          <Property Name="Racks" Type="float" />
+          <Property Name="Frames" Type="float" />
+          <Property Name="Enclosures" Type="float" />
+          <Property Name="Campus_distribution_subsystems" Type="float" />
+          <Property Name="Vertical_distribution_subsystem" Type="float" />
+          <Property Name="Com_horizontal_cabling" Type="float" />
+          <Property Name="Com_circuits" Type="float" />
+          <Property Name="Com_patch_cords" Type="float" />
+          <Property Name="Station_cords" Type="float" />
+          <Property Name="Cross_connect_wires" Type="float" />
+          <Property Name="Multimedia_equipment" Type="float" />
+          <Property Name="PBX_switch_processor" Type="float" />
+          <Property Name="Expansion_phone_network" Type="float" />
+          <Property Name="Desk_phones" Type="float" />
+          <Property Name="Public_wall_phones" Type="float" />
+          <Property Name="Conferencing_phones" Type="float" />
+          <Property Name="Internal_celular" Type="float" />
+          <Property Name="Printers" Type="float" />
+          <Property Name="Training_pcs" Type="float" />
+          <Property Name="Servers" Type="float" />
+          <Property Name="Servers_racks" Type="float" />
+          <Property Name="A_E_desing_consultants" Type="float" />
+          <Property Name="QC_Consultants" Type="float" />
+          <Property Name="Project_management_coordination" Type="float" />
+          <Property Name="Temporary_communications" Type="float" />
+          <Property Name="Telecom_cabling_demoliton" Type="float" />
+          <Property Name="Other_expenses" Type="float" />
+        </EntityType>
+        <EntityType Name="ProjectNames">
+          <Key>
+            <PropertyRef Name="Project_id" />
+          </Key>
+          <Property Name="Project_id" Type="int" Nullable="false" />
+          <Property Name="Project_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectTypes">
+          <Key>
+            <PropertyRef Name="Project_type_id" />
+          </Key>
+          <Property Name="Project_type_id" Type="int" Nullable="false" />
+          <Property Name="Project_type_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SpeedConnectionTypes">
+          <Key>
+            <PropertyRef Name="Speed_connection_id" />
+          </Key>
+          <Property Name="Speed_connection_id" Type="int" Nullable="false" />
+          <Property Name="Speed_connection_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="User_name" Type="varchar" MaxLength="100" />
+          <Property Name="User_type" Type="int" />
+          <Property Name="User_password" Type="varchar" MaxLength="100" />
+          <Property Name="User_phone" Type="varchar" MaxLength="100" />
+          <Property Name="User_email" Type="varchar" MaxLength="100" />
+          <Property Name="User_age" Type="int" />
+          <Property Name="User_secure_question_1" Type="varchar" MaxLength="100" />
+          <Property Name="User_secure_question_2" Type="varchar" MaxLength="100" />
+          <Property Name="User_secure_question_3" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="User_type_id" />
+          </Key>
+          <Property Name="User_type_id" Type="int" Nullable="false" />
+          <Property Name="User_type_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DataCenters_DcScopes">
+          <End Role="DcScopes" Type="Self.DcScopes" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DcScopes">
+              <PropertyRef Name="Dc_scope_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Scope" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_PhaseTypes">
+          <End Role="PhaseTypes" Type="Self.PhaseTypes" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhaseTypes">
+              <PropertyRef Name="Phase_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Project_phase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Project_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_SpeedConnectionTypes">
+          <End Role="SpeedConnectionTypes" Type="Self.SpeedConnectionTypes" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpeedConnectionTypes">
+              <PropertyRef Name="Speed_connection_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Speed_connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_FabScopes">
+          <End Role="FabScopes" Type="Self.FabScopes" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FabScopes">
+              <PropertyRef Name="Fab_scope_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Scope" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_PhaseTypes">
+          <End Role="PhaseTypes" Type="Self.PhaseTypes" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhaseTypes">
+              <PropertyRef Name="Phase_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Project_phase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Project_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_SpeedConnectionTypes">
+          <End Role="SpeedConnectionTypes" Type="Self.SpeedConnectionTypes" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpeedConnectionTypes">
+              <PropertyRef Name="Speed_connection_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Speed_connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_LabScopes">
+          <End Role="LabScopes" Type="Self.LabScopes" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabScopes">
+              <PropertyRef Name="Lab_scope_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Scope" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_PhaseTypes">
+          <End Role="PhaseTypes" Type="Self.PhaseTypes" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhaseTypes">
+              <PropertyRef Name="Phase_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Project_phase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Project_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_SpeedConnectionTypes">
+          <End Role="SpeedConnectionTypes" Type="Self.SpeedConnectionTypes" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpeedConnectionTypes">
+              <PropertyRef Name="Speed_connection_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Speed_connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_ConnectionTypes">
+          <End Role="ConnectionTypes" Type="Self.ConnectionTypes" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConnectionTypes">
+              <PropertyRef Name="Connection_type_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_OfficeScopes">
+          <End Role="OfficeScopes" Type="Self.OfficeScopes" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OfficeScopes">
+              <PropertyRef Name="Office_scope_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Scope" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Project_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_SpeedConnectionTypes">
+          <End Role="SpeedConnectionTypes" Type="Self.SpeedConnectionTypes" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpeedConnectionTypes">
+              <PropertyRef Name="Speed_connection_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Speed_connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtherProjects_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="OtherProjects" Type="Self.OtherProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="OtherProjects">
+              <PropertyRef Name="Other_projectType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtherProjects_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="OtherProjects" Type="Self.OtherProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="OtherProjects">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectNames_DataCenters">
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="1" />
+          <End Role="ProjectNames" Type="Self.ProjectNames" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DataCenters">
+              <PropertyRef Name="DataCenter_request_id" />
+            </Principal>
+            <Dependent Role="ProjectNames">
+              <PropertyRef Name="Project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectNames_Labs">
+          <End Role="Labs" Type="Self.Labs" Multiplicity="1" />
+          <End Role="ProjectNames" Type="Self.ProjectNames" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Labs">
+              <PropertyRef Name="Lab_request_id" />
+            </Principal>
+            <Dependent Role="ProjectNames">
+              <PropertyRef Name="Project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectNames_OtherProjects">
+          <End Role="OtherProjects" Type="Self.OtherProjects" Multiplicity="1" />
+          <End Role="ProjectNames" Type="Self.ProjectNames" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OtherProjects">
+              <PropertyRef Name="Other_request_id" />
+            </Principal>
+            <Dependent Role="ProjectNames">
+              <PropertyRef Name="Project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserTypes">
+          <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTypes">
+              <PropertyRef Name="User_type_id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="User_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectManagementModelStoreContainer">
+          <EntitySet Name="ConnectionTypes" EntityType="Self.ConnectionTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataCenters" EntityType="Self.DataCenters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DcScopes" EntityType="Self.DcScopes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FabScopes" EntityType="Self.FabScopes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factories" EntityType="Self.Factories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Labs" EntityType="Self.Labs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LabScopes" EntityType="Self.LabScopes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Offices" EntityType="Self.Offices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OfficeScopes" EntityType="Self.OfficeScopes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OtherProjects" EntityType="Self.OtherProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhaseTypes" EntityType="Self.PhaseTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PmProjectCost" EntityType="Self.PmProjectCost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectNames" EntityType="Self.ProjectNames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectTypes" EntityType="Self.ProjectTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpeedConnectionTypes" EntityType="Self.SpeedConnectionTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DataCenters_DcScopes" Association="Self.FK_DataCenters_DcScopes">
+            <End Role="DcScopes" EntitySet="DcScopes" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_PhaseTypes" Association="Self.FK_DataCenters_PhaseTypes">
+            <End Role="PhaseTypes" EntitySet="PhaseTypes" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_ProjectTypes" Association="Self.FK_DataCenters_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_SpeedConnectionTypes" Association="Self.FK_DataCenters_SpeedConnectionTypes">
+            <End Role="SpeedConnectionTypes" EntitySet="SpeedConnectionTypes" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_Users" Association="Self.FK_DataCenters_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_FabScopes" Association="Self.FK_Factories_FabScopes">
+            <End Role="FabScopes" EntitySet="FabScopes" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_PhaseTypes" Association="Self.FK_Factories_PhaseTypes">
+            <End Role="PhaseTypes" EntitySet="PhaseTypes" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_ProjectTypes" Association="Self.FK_Factories_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_SpeedConnectionTypes" Association="Self.FK_Factories_SpeedConnectionTypes">
+            <End Role="SpeedConnectionTypes" EntitySet="SpeedConnectionTypes" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_Users" Association="Self.FK_Factories_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_LabScopes" Association="Self.FK_Labs_LabScopes">
+            <End Role="LabScopes" EntitySet="LabScopes" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_PhaseTypes" Association="Self.FK_Labs_PhaseTypes">
+            <End Role="PhaseTypes" EntitySet="PhaseTypes" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_ProjectTypes" Association="Self.FK_Labs_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_SpeedConnectionTypes" Association="Self.FK_Labs_SpeedConnectionTypes">
+            <End Role="SpeedConnectionTypes" EntitySet="SpeedConnectionTypes" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_Users" Association="Self.FK_Labs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_ConnectionTypes" Association="Self.FK_Offices_ConnectionTypes">
+            <End Role="ConnectionTypes" EntitySet="ConnectionTypes" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_OfficeScopes" Association="Self.FK_Offices_OfficeScopes">
+            <End Role="OfficeScopes" EntitySet="OfficeScopes" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_ProjectTypes" Association="Self.FK_Offices_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_SpeedConnectionTypes" Association="Self.FK_Offices_SpeedConnectionTypes">
+            <End Role="SpeedConnectionTypes" EntitySet="SpeedConnectionTypes" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_Users" Association="Self.FK_Offices_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtherProjects_ProjectTypes" Association="Self.FK_OtherProjects_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="OtherProjects" EntitySet="OtherProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtherProjects_Users" Association="Self.FK_OtherProjects_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="OtherProjects" EntitySet="OtherProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectNames_DataCenters" Association="Self.FK_ProjectNames_DataCenters">
+            <End Role="DataCenters" EntitySet="DataCenters" />
+            <End Role="ProjectNames" EntitySet="ProjectNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectNames_Labs" Association="Self.FK_ProjectNames_Labs">
+            <End Role="Labs" EntitySet="Labs" />
+            <End Role="ProjectNames" EntitySet="ProjectNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectNames_OtherProjects" Association="Self.FK_ProjectNames_OtherProjects">
+            <End Role="OtherProjects" EntitySet="OtherProjects" />
+            <End Role="ProjectNames" EntitySet="ProjectNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserTypes" Association="Self.FK_Users_UserTypes">
+            <End Role="UserTypes" EntitySet="UserTypes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ConnectionTypes">
+          <Key>
+            <PropertyRef Name="Connection_type_id" />
+          </Key>
+          <Property Name="Connection_type_id" Type="Int32" Nullable="false" />
+          <Property Name="Connection_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Offices" Relationship="Self.FK_Offices_ConnectionTypes" FromRole="ConnectionTypes" ToRole="Offices" />
+        </EntityType>
+        <EntityType Name="DataCenters">
+          <Key>
+            <PropertyRef Name="DataCenter_request_id" />
+          </Key>
+          <Property Name="DataCenter_request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataCenter_requestor_id" Type="Int32" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Assigned_pm" Type="Int32" />
+          <Property Name="Site_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Program_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_phase" Type="Int32" />
+          <Property Name="Request_date" Type="DateTime" Precision="0" />
+          <Property Name="Expected_date" Type="DateTime" Precision="0" />
+          <Property Name="Project_budget" Type="Double" />
+          <Property Name="Project_type" Type="Int32" />
+          <Property Name="Square_footage" Type="Double" />
+          <Property Name="DataCenter_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Scope" Type="Int32" />
+          <Property Name="Total_number_racks" Type="Int32" />
+          <Property Name="Total_number_ports_per_rack" Type="Int32" />
+          <Property Name="Total_number_copper_ports_per_racks" Type="Int32" />
+          <Property Name="Total_number_fiber_ports_per_rack" Type="Int32" />
+          <Property Name="Speed_connection" Type="Int32" />
+          <Property Name="Project_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DcScopes" Relationship="Self.FK_DataCenters_DcScopes" FromRole="DataCenters" ToRole="DcScopes" />
+          <NavigationProperty Name="PhaseTypes" Relationship="Self.FK_DataCenters_PhaseTypes" FromRole="DataCenters" ToRole="PhaseTypes" />
+          <NavigationProperty Name="ProjectTypes" Relationship="Self.FK_DataCenters_ProjectTypes" FromRole="DataCenters" ToRole="ProjectTypes" />
+          <NavigationProperty Name="SpeedConnectionTypes" Relationship="Self.FK_DataCenters_SpeedConnectionTypes" FromRole="DataCenters" ToRole="SpeedConnectionTypes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_DataCenters_Users" FromRole="DataCenters" ToRole="Users" />
+          <NavigationProperty Name="ProjectNames" Relationship="Self.FK_ProjectNames_DataCenters" FromRole="DataCenters" ToRole="ProjectNames" />
+        </EntityType>
+        <EntityType Name="DcScopes">
+          <Key>
+            <PropertyRef Name="Dc_scope_id" />
+          </Key>
+          <Property Name="Dc_scope_id" Type="Int32" Nullable="false" />
+          <Property Name="Dc_scope_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DataCenters" Relationship="Self.FK_DataCenters_DcScopes" FromRole="DcScopes" ToRole="DataCenters" />
+        </EntityType>
+        <EntityType Name="FabScopes">
+          <Key>
+            <PropertyRef Name="Fab_scope_id" />
+          </Key>
+          <Property Name="Fab_scope_id" Type="Int32" Nullable="false" />
+          <Property Name="Fab_scope_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Factories" Relationship="Self.FK_Factories_FabScopes" FromRole="FabScopes" ToRole="Factories" />
+        </EntityType>
+        <EntityType Name="Factories">
+          <Key>
+            <PropertyRef Name="Factory_request_id" />
+          </Key>
+          <Property Name="Factory_request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Factory_requestor_id" Type="Int32" />
+          <Property Name="Assigned_pm" Type="Int32" />
+          <Property Name="Site_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Program_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_phase" Type="Int32" />
+          <Property Name="Request_date" Type="DateTime" Precision="0" />
+          <Property Name="Expected_date" Type="DateTime" Precision="0" />
+          <Property Name="Project_budget" Type="Double" />
+          <Property Name="Project_type" Type="Int32" />
+          <Property Name="Factory_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Total_number_bays" Type="Int32" />
+          <Property Name="Total_number_ports_per_bay" Type="Int32" />
+          <Property Name="Total_number_copper_ports_per_bay" Type="Int32" />
+          <Property Name="Total_number_fiber_ports_per_bay" Type="Int32" />
+          <Property Name="Speed_connection" Type="Int32" />
+          <Property Name="Fab_type" Type="Int32" />
+          <Property Name="Square_footage" Type="Double" />
+          <Property Name="Project_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Scope" Type="Int32" />
+          <NavigationProperty Name="FabScopes" Relationship="Self.FK_Factories_FabScopes" FromRole="Factories" ToRole="FabScopes" />
+          <NavigationProperty Name="PhaseTypes" Relationship="Self.FK_Factories_PhaseTypes" FromRole="Factories" ToRole="PhaseTypes" />
+          <NavigationProperty Name="ProjectTypes" Relationship="Self.FK_Factories_ProjectTypes" FromRole="Factories" ToRole="ProjectTypes" />
+          <NavigationProperty Name="SpeedConnectionTypes" Relationship="Self.FK_Factories_SpeedConnectionTypes" FromRole="Factories" ToRole="SpeedConnectionTypes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Factories_Users" FromRole="Factories" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Labs">
+          <Key>
+            <PropertyRef Name="Lab_request_id" />
+          </Key>
+          <Property Name="Lab_request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Lab_requestor_id" Type="Int32" />
+          <Property Name="Assigned_pm" Type="Int32" />
+          <Property Name="Site_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Program_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_phase" Type="Int32" />
+          <Property Name="Request_date" Type="DateTime" Precision="0" />
+          <Property Name="Expected_date" Type="DateTime" Precision="0" />
+          <Property Name="Project_budget" Type="Double" />
+          <Property Name="Project_type" Type="Int32" />
+          <Property Name="Lab_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Scope" Type="Int32" />
+          <Property Name="Square_footage" Type="Double" />
+          <Property Name="Total_number_racks" Type="Int32" />
+          <Property Name="Total_number_ports_per_rack" Type="Int32" />
+          <Property Name="Total_number_copper_ports_per_racks" Type="Int32" />
+          <Property Name="Total_number_fiber_ports_per_rack" Type="Int32" />
+          <Property Name="Total_number_benches" Type="Int32" />
+          <Property Name="Total_number_ports_per_bench" Type="Int32" />
+          <Property Name="Total_number_copper_ports_per_bench" Type="Int32" />
+          <Property Name="Total_number_fiber_ports_per_bench" Type="Int32" />
+          <Property Name="Speed_connection" Type="Int32" />
+          <Property Name="Project_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LabScopes" Relationship="Self.FK_Labs_LabScopes" FromRole="Labs" ToRole="LabScopes" />
+          <NavigationProperty Name="PhaseTypes" Relationship="Self.FK_Labs_PhaseTypes" FromRole="Labs" ToRole="PhaseTypes" />
+          <NavigationProperty Name="ProjectTypes" Relationship="Self.FK_Labs_ProjectTypes" FromRole="Labs" ToRole="ProjectTypes" />
+          <NavigationProperty Name="SpeedConnectionTypes" Relationship="Self.FK_Labs_SpeedConnectionTypes" FromRole="Labs" ToRole="SpeedConnectionTypes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Labs_Users" FromRole="Labs" ToRole="Users" />
+          <NavigationProperty Name="ProjectNames" Relationship="Self.FK_ProjectNames_Labs" FromRole="Labs" ToRole="ProjectNames" />
+        </EntityType>
+        <EntityType Name="LabScopes">
+          <Key>
+            <PropertyRef Name="Lab_scope_id" />
+          </Key>
+          <Property Name="Lab_scope_id" Type="Int32" Nullable="false" />
+          <Property Name="Lab_scope_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Labs" Relationship="Self.FK_Labs_LabScopes" FromRole="LabScopes" ToRole="Labs" />
+        </EntityType>
+        <EntityType Name="Offices">
+          <Key>
+            <PropertyRef Name="Office_request_id" />
+          </Key>
+          <Property Name="Office_request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Office_requestor_id" Type="Int32" />
+          <Property Name="Assigned_pm" Type="Int32" />
+          <Property Name="Site_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Program_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Project_phase" Type="Int32" />
+          <Property Name="Request_date" Type="DateTime" Precision="0" />
+          <Property Name="Expected_date" Type="DateTime" Precision="0" />
+          <Property Name="Project_budget" Type="Double" />
+          <Property Name="Project_type" Type="Int32" />
+          <Property Name="Total_number_workstations" Type="Int32" />
+          <Property Name="Total_number_ports_per_workstation" Type="Int32" />
+          <Property Name="Speed_connection" Type="Int32" />
+          <Property Name="Total_number_workstation_copper_ports" Type="Int32" />
+          <Property Name="Total_number_workstation_fiber_ports" Type="Int32" />
+          <Property Name="Number_of_auditoriums" Type="Int32" />
+          <Property Name="Number_of_A_type_rooms" Type="Int32" />
+          <Property Name="Number_of_B_type_rooms" Type="Int32" />
+          <Property Name="Number_of_C_type_rooms" Type="Int32" />
+          <Property Name="Number_of_Collaboration_rooms" Type="Int32" />
+          <Property Name="Number_of_phonebooths" Type="Int32" />
+          <Property Name="Square_footage" Type="Double" />
+          <Property Name="Project_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Scope" Type="Int32" />
+          <Property Name="Connection" Type="Int32" />
+          <NavigationProperty Name="ConnectionTypes" Relationship="Self.FK_Offices_ConnectionTypes" FromRole="Offices" ToRole="ConnectionTypes" />
+          <NavigationProperty Name="OfficeScopes" Relationship="Self.FK_Offices_OfficeScopes" FromRole="Offices" ToRole="OfficeScopes" />
+          <NavigationProperty Name="ProjectTypes" Relationship="Self.FK_Offices_ProjectTypes" FromRole="Offices" ToRole="ProjectTypes" />
+          <NavigationProperty Name="SpeedConnectionTypes" Relationship="Self.FK_Offices_SpeedConnectionTypes" FromRole="Offices" ToRole="SpeedConnectionTypes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Offices_Users" FromRole="Offices" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="OfficeScopes">
+          <Key>
+            <PropertyRef Name="Office_scope_id" />
+          </Key>
+          <Property Name="Office_scope_id" Type="Int32" Nullable="false" />
+          <Property Name="Office_scope_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Offices" Relationship="Self.FK_Offices_OfficeScopes" FromRole="OfficeScopes" ToRole="Offices" />
+        </EntityType>
+        <EntityType Name="OtherProjects">
+          <Key>
+            <PropertyRef Name="Other_request_id" />
+          </Key>
+          <Property Name="Other_request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Project_description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Other_requestor_id" Type="Int32" />
+          <Property Name="Other_projectType" Type="Int32" />
+          <Property Name="Assigned_pm" Type="Int32" />
+          <NavigationProperty Name="ProjectTypes" Relationship="Self.FK_OtherProjects_ProjectTypes" FromRole="OtherProjects" ToRole="ProjectTypes" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_OtherProjects_Users" FromRole="OtherProjects" ToRole="Users" />
+          <NavigationProperty Name="ProjectNames" Relationship="Self.FK_ProjectNames_OtherProjects" FromRole="OtherProjects" ToRole="ProjectNames" />
+        </EntityType>
+        <EntityType Name="PhaseTypes">
+          <Key>
+            <PropertyRef Name="Phase_id" />
+          </Key>
+          <Property Name="Phase_id" Type="Int32" Nullable="false" />
+          <Property Name="Phase_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DataCenters" Relationship="Self.FK_DataCenters_PhaseTypes" FromRole="PhaseTypes" ToRole="DataCenters" />
+          <NavigationProperty Name="Factories" Relationship="Self.FK_Factories_PhaseTypes" FromRole="PhaseTypes" ToRole="Factories" />
+          <NavigationProperty Name="Labs" Relationship="Self.FK_Labs_PhaseTypes" FromRole="PhaseTypes" ToRole="Labs" />
+        </EntityType>
+        <EntityType Name="PmProjectCost">
+          <Key>
+            <PropertyRef Name="Project_id" />
+          </Key>
+          <Property Name="Project_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Local_area_network_systems" Type="Double" />
+          <Property Name="Wide_area_network" Type="Double" />
+          <Property Name="Wireless_Lan_Infrastructure_equipment" Type="Double" />
+          <Property Name="Indetification_for_com_systems" Type="Double" />
+          <Property Name="Com_grounding" Type="Double" />
+          <Property Name="Cable_Trays" Type="Double" />
+          <Property Name="Handholes_and_manholes" Type="Double" />
+          <Property Name="Com_cabinets" Type="Double" />
+          <Property Name="Racks" Type="Double" />
+          <Property Name="Frames" Type="Double" />
+          <Property Name="Enclosures" Type="Double" />
+          <Property Name="Campus_distribution_subsystems" Type="Double" />
+          <Property Name="Vertical_distribution_subsystem" Type="Double" />
+          <Property Name="Com_horizontal_cabling" Type="Double" />
+          <Property Name="Com_circuits" Type="Double" />
+          <Property Name="Com_patch_cords" Type="Double" />
+          <Property Name="Station_cords" Type="Double" />
+          <Property Name="Cross_connect_wires" Type="Double" />
+          <Property Name="Multimedia_equipment" Type="Double" />
+          <Property Name="PBX_switch_processor" Type="Double" />
+          <Property Name="Expansion_phone_network" Type="Double" />
+          <Property Name="Desk_phones" Type="Double" />
+          <Property Name="Public_wall_phones" Type="Double" />
+          <Property Name="Conferencing_phones" Type="Double" />
+          <Property Name="Internal_celular" Type="Double" />
+          <Property Name="Printers" Type="Double" />
+          <Property Name="Training_pcs" Type="Double" />
+          <Property Name="Servers" Type="Double" />
+          <Property Name="Servers_racks" Type="Double" />
+          <Property Name="A_E_desing_consultants" Type="Double" />
+          <Property Name="QC_Consultants" Type="Double" />
+          <Property Name="Project_management_coordination" Type="Double" />
+          <Property Name="Temporary_communications" Type="Double" />
+          <Property Name="Telecom_cabling_demoliton" Type="Double" />
+          <Property Name="Other_expenses" Type="Double" />
+        </EntityType>
+        <EntityType Name="ProjectNames">
+          <Key>
+            <PropertyRef Name="Project_id" />
+          </Key>
+          <Property Name="Project_id" Type="Int32" Nullable="false" />
+          <Property Name="Project_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DataCenters" Relationship="Self.FK_ProjectNames_DataCenters" FromRole="ProjectNames" ToRole="DataCenters" />
+          <NavigationProperty Name="Labs" Relationship="Self.FK_ProjectNames_Labs" FromRole="ProjectNames" ToRole="Labs" />
+          <NavigationProperty Name="OtherProjects" Relationship="Self.FK_ProjectNames_OtherProjects" FromRole="ProjectNames" ToRole="OtherProjects" />
+        </EntityType>
+        <EntityType Name="ProjectTypes">
+          <Key>
+            <PropertyRef Name="Project_type_id" />
+          </Key>
+          <Property Name="Project_type_id" Type="Int32" Nullable="false" />
+          <Property Name="Project_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DataCenters" Relationship="Self.FK_DataCenters_ProjectTypes" FromRole="ProjectTypes" ToRole="DataCenters" />
+          <NavigationProperty Name="Factories" Relationship="Self.FK_Factories_ProjectTypes" FromRole="ProjectTypes" ToRole="Factories" />
+          <NavigationProperty Name="Labs" Relationship="Self.FK_Labs_ProjectTypes" FromRole="ProjectTypes" ToRole="Labs" />
+          <NavigationProperty Name="Offices" Relationship="Self.FK_Offices_ProjectTypes" FromRole="ProjectTypes" ToRole="Offices" />
+          <NavigationProperty Name="OtherProjects" Relationship="Self.FK_OtherProjects_ProjectTypes" FromRole="ProjectTypes" ToRole="OtherProjects" />
+        </EntityType>
+        <EntityType Name="SpeedConnectionTypes">
+          <Key>
+            <PropertyRef Name="Speed_connection_id" />
+          </Key>
+          <Property Name="Speed_connection_id" Type="Int32" Nullable="false" />
+          <Property Name="Speed_connection_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DataCenters" Relationship="Self.FK_DataCenters_SpeedConnectionTypes" FromRole="SpeedConnectionTypes" ToRole="DataCenters" />
+          <NavigationProperty Name="Factories" Relationship="Self.FK_Factories_SpeedConnectionTypes" FromRole="SpeedConnectionTypes" ToRole="Factories" />
+          <NavigationProperty Name="Labs" Relationship="Self.FK_Labs_SpeedConnectionTypes" FromRole="SpeedConnectionTypes" ToRole="Labs" />
+          <NavigationProperty Name="Offices" Relationship="Self.FK_Offices_SpeedConnectionTypes" FromRole="SpeedConnectionTypes" ToRole="Offices" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="User_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="User_type" Type="Int32" />
+          <Property Name="User_password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="User_phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="User_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="User_age" Type="Int32" />
+          <Property Name="User_secure_question_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="User_secure_question_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="User_secure_question_3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DataCenters" Relationship="Self.FK_DataCenters_Users" FromRole="Users" ToRole="DataCenters" />
+          <NavigationProperty Name="Factories" Relationship="Self.FK_Factories_Users" FromRole="Users" ToRole="Factories" />
+          <NavigationProperty Name="Labs" Relationship="Self.FK_Labs_Users" FromRole="Users" ToRole="Labs" />
+          <NavigationProperty Name="Offices" Relationship="Self.FK_Offices_Users" FromRole="Users" ToRole="Offices" />
+          <NavigationProperty Name="OtherProjects" Relationship="Self.FK_OtherProjects_Users" FromRole="Users" ToRole="OtherProjects" />
+          <NavigationProperty Name="UserTypes" Relationship="Self.FK_Users_UserTypes" FromRole="Users" ToRole="UserTypes" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="User_type_id" />
+          </Key>
+          <Property Name="User_type_id" Type="Int32" Nullable="false" />
+          <Property Name="User_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserTypes" FromRole="UserTypes" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_Offices_ConnectionTypes">
+          <End Role="ConnectionTypes" Type="Self.ConnectionTypes" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConnectionTypes">
+              <PropertyRef Name="Connection_type_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_DcScopes">
+          <End Role="DcScopes" Type="Self.DcScopes" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DcScopes">
+              <PropertyRef Name="Dc_scope_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Scope" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_PhaseTypes">
+          <End Role="PhaseTypes" Type="Self.PhaseTypes" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhaseTypes">
+              <PropertyRef Name="Phase_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Project_phase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Project_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_SpeedConnectionTypes">
+          <End Role="SpeedConnectionTypes" Type="Self.SpeedConnectionTypes" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpeedConnectionTypes">
+              <PropertyRef Name="Speed_connection_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Speed_connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DataCenters_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="DataCenters">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectNames_DataCenters">
+          <End Role="DataCenters" Type="Self.DataCenters" Multiplicity="1" />
+          <End Role="ProjectNames" Type="Self.ProjectNames" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="DataCenters">
+              <PropertyRef Name="DataCenter_request_id" />
+            </Principal>
+            <Dependent Role="ProjectNames">
+              <PropertyRef Name="Project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_FabScopes">
+          <End Role="FabScopes" Type="Self.FabScopes" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FabScopes">
+              <PropertyRef Name="Fab_scope_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Scope" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_PhaseTypes">
+          <End Role="PhaseTypes" Type="Self.PhaseTypes" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhaseTypes">
+              <PropertyRef Name="Phase_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Project_phase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Project_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_SpeedConnectionTypes">
+          <End Role="SpeedConnectionTypes" Type="Self.SpeedConnectionTypes" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpeedConnectionTypes">
+              <PropertyRef Name="Speed_connection_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Speed_connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factories_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Factories" Type="Self.Factories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Factories">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_LabScopes">
+          <End Role="LabScopes" Type="Self.LabScopes" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LabScopes">
+              <PropertyRef Name="Lab_scope_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Scope" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_PhaseTypes">
+          <End Role="PhaseTypes" Type="Self.PhaseTypes" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhaseTypes">
+              <PropertyRef Name="Phase_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Project_phase" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Project_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_SpeedConnectionTypes">
+          <End Role="SpeedConnectionTypes" Type="Self.SpeedConnectionTypes" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpeedConnectionTypes">
+              <PropertyRef Name="Speed_connection_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Speed_connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Labs_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Labs" Type="Self.Labs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Labs">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectNames_Labs">
+          <End Role="Labs" Type="Self.Labs" Multiplicity="1" />
+          <End Role="ProjectNames" Type="Self.ProjectNames" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Labs">
+              <PropertyRef Name="Lab_request_id" />
+            </Principal>
+            <Dependent Role="ProjectNames">
+              <PropertyRef Name="Project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_OfficeScopes">
+          <End Role="OfficeScopes" Type="Self.OfficeScopes" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OfficeScopes">
+              <PropertyRef Name="Office_scope_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Scope" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Project_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_SpeedConnectionTypes">
+          <End Role="SpeedConnectionTypes" Type="Self.SpeedConnectionTypes" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpeedConnectionTypes">
+              <PropertyRef Name="Speed_connection_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Speed_connection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Offices_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Offices" Type="Self.Offices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Offices">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtherProjects_ProjectTypes">
+          <End Role="ProjectTypes" Type="Self.ProjectTypes" Multiplicity="0..1" />
+          <End Role="OtherProjects" Type="Self.OtherProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectTypes">
+              <PropertyRef Name="Project_type_id" />
+            </Principal>
+            <Dependent Role="OtherProjects">
+              <PropertyRef Name="Other_projectType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtherProjects_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="OtherProjects" Type="Self.OtherProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="OtherProjects">
+              <PropertyRef Name="Assigned_pm" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectNames_OtherProjects">
+          <End Role="OtherProjects" Type="Self.OtherProjects" Multiplicity="1" />
+          <End Role="ProjectNames" Type="Self.ProjectNames" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OtherProjects">
+              <PropertyRef Name="Other_request_id" />
+            </Principal>
+            <Dependent Role="ProjectNames">
+              <PropertyRef Name="Project_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserTypes">
+          <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTypes">
+              <PropertyRef Name="User_type_id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="User_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConnectionTypes" EntityType="Self.ConnectionTypes" />
+          <EntitySet Name="DataCenters" EntityType="Self.DataCenters" />
+          <EntitySet Name="DcScopes" EntityType="Self.DcScopes" />
+          <EntitySet Name="FabScopes" EntityType="Self.FabScopes" />
+          <EntitySet Name="Factories" EntityType="Self.Factories" />
+          <EntitySet Name="Labs" EntityType="Self.Labs" />
+          <EntitySet Name="LabScopes" EntityType="Self.LabScopes" />
+          <EntitySet Name="Offices" EntityType="Self.Offices" />
+          <EntitySet Name="OfficeScopes" EntityType="Self.OfficeScopes" />
+          <EntitySet Name="OtherProjects" EntityType="Self.OtherProjects" />
+          <EntitySet Name="PhaseTypes" EntityType="Self.PhaseTypes" />
+          <EntitySet Name="PmProjectCost" EntityType="Self.PmProjectCost" />
+          <EntitySet Name="ProjectNames" EntityType="Self.ProjectNames" />
+          <EntitySet Name="ProjectTypes" EntityType="Self.ProjectTypes" />
+          <EntitySet Name="SpeedConnectionTypes" EntityType="Self.SpeedConnectionTypes" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" />
+          <AssociationSet Name="FK_Offices_ConnectionTypes" Association="Self.FK_Offices_ConnectionTypes">
+            <End Role="ConnectionTypes" EntitySet="ConnectionTypes" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_DcScopes" Association="Self.FK_DataCenters_DcScopes">
+            <End Role="DcScopes" EntitySet="DcScopes" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_PhaseTypes" Association="Self.FK_DataCenters_PhaseTypes">
+            <End Role="PhaseTypes" EntitySet="PhaseTypes" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_ProjectTypes" Association="Self.FK_DataCenters_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_SpeedConnectionTypes" Association="Self.FK_DataCenters_SpeedConnectionTypes">
+            <End Role="SpeedConnectionTypes" EntitySet="SpeedConnectionTypes" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DataCenters_Users" Association="Self.FK_DataCenters_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DataCenters" EntitySet="DataCenters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectNames_DataCenters" Association="Self.FK_ProjectNames_DataCenters">
+            <End Role="DataCenters" EntitySet="DataCenters" />
+            <End Role="ProjectNames" EntitySet="ProjectNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_FabScopes" Association="Self.FK_Factories_FabScopes">
+            <End Role="FabScopes" EntitySet="FabScopes" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_PhaseTypes" Association="Self.FK_Factories_PhaseTypes">
+            <End Role="PhaseTypes" EntitySet="PhaseTypes" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_ProjectTypes" Association="Self.FK_Factories_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_SpeedConnectionTypes" Association="Self.FK_Factories_SpeedConnectionTypes">
+            <End Role="SpeedConnectionTypes" EntitySet="SpeedConnectionTypes" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factories_Users" Association="Self.FK_Factories_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Factories" EntitySet="Factories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_LabScopes" Association="Self.FK_Labs_LabScopes">
+            <End Role="LabScopes" EntitySet="LabScopes" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_PhaseTypes" Association="Self.FK_Labs_PhaseTypes">
+            <End Role="PhaseTypes" EntitySet="PhaseTypes" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_ProjectTypes" Association="Self.FK_Labs_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_SpeedConnectionTypes" Association="Self.FK_Labs_SpeedConnectionTypes">
+            <End Role="SpeedConnectionTypes" EntitySet="SpeedConnectionTypes" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Labs_Users" Association="Self.FK_Labs_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Labs" EntitySet="Labs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectNames_Labs" Association="Self.FK_ProjectNames_Labs">
+            <End Role="Labs" EntitySet="Labs" />
+            <End Role="ProjectNames" EntitySet="ProjectNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_OfficeScopes" Association="Self.FK_Offices_OfficeScopes">
+            <End Role="OfficeScopes" EntitySet="OfficeScopes" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_ProjectTypes" Association="Self.FK_Offices_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_SpeedConnectionTypes" Association="Self.FK_Offices_SpeedConnectionTypes">
+            <End Role="SpeedConnectionTypes" EntitySet="SpeedConnectionTypes" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Offices_Users" Association="Self.FK_Offices_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Offices" EntitySet="Offices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtherProjects_ProjectTypes" Association="Self.FK_OtherProjects_ProjectTypes">
+            <End Role="ProjectTypes" EntitySet="ProjectTypes" />
+            <End Role="OtherProjects" EntitySet="OtherProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtherProjects_Users" Association="Self.FK_OtherProjects_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="OtherProjects" EntitySet="OtherProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectNames_OtherProjects" Association="Self.FK_ProjectNames_OtherProjects">
+            <End Role="OtherProjects" EntitySet="OtherProjects" />
+            <End Role="ProjectNames" EntitySet="ProjectNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserTypes" Association="Self.FK_Users_UserTypes">
+            <End Role="UserTypes" EntitySet="UserTypes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectManagementModelStoreContainer" CdmEntityContainer="ProjectManagementEntities">
+          <EntitySetMapping Name="ConnectionTypes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.ConnectionTypes">
+              <MappingFragment StoreEntitySet="ConnectionTypes">
+                <ScalarProperty Name="Connection_type_id" ColumnName="Connection_type_id" />
+                <ScalarProperty Name="Connection_type_name" ColumnName="Connection_type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataCenters">
+            <EntityTypeMapping TypeName="ProjectManagementModel.DataCenters">
+              <MappingFragment StoreEntitySet="DataCenters">
+                <ScalarProperty Name="DataCenter_request_id" ColumnName="DataCenter_request_id" />
+                <ScalarProperty Name="DataCenter_requestor_id" ColumnName="DataCenter_requestor_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Assigned_pm" ColumnName="Assigned_pm" />
+                <ScalarProperty Name="Site_name" ColumnName="Site_name" />
+                <ScalarProperty Name="Program_name" ColumnName="Program_name" />
+                <ScalarProperty Name="Project_name" ColumnName="Project_name" />
+                <ScalarProperty Name="Project_phase" ColumnName="Project_phase" />
+                <ScalarProperty Name="Request_date" ColumnName="Request_date" />
+                <ScalarProperty Name="Expected_date" ColumnName="Expected_date" />
+                <ScalarProperty Name="Project_budget" ColumnName="Project_budget" />
+                <ScalarProperty Name="Project_type" ColumnName="Project_type" />
+                <ScalarProperty Name="Square_footage" ColumnName="Square_footage" />
+                <ScalarProperty Name="DataCenter_name" ColumnName="DataCenter_name" />
+                <ScalarProperty Name="Scope" ColumnName="Scope" />
+                <ScalarProperty Name="Total_number_racks" ColumnName="Total_number_racks" />
+                <ScalarProperty Name="Total_number_ports_per_rack" ColumnName="Total_number_ports_per_rack" />
+                <ScalarProperty Name="Total_number_copper_ports_per_racks" ColumnName="Total_number_copper_ports_per_racks" />
+                <ScalarProperty Name="Total_number_fiber_ports_per_rack" ColumnName="Total_number_fiber_ports_per_rack" />
+                <ScalarProperty Name="Speed_connection" ColumnName="Speed_connection" />
+                <ScalarProperty Name="Project_description" ColumnName="Project_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DcScopes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.DcScopes">
+              <MappingFragment StoreEntitySet="DcScopes">
+                <ScalarProperty Name="Dc_scope_id" ColumnName="Dc_scope_id" />
+                <ScalarProperty Name="Dc_scope_name" ColumnName="Dc_scope_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FabScopes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.FabScopes">
+              <MappingFragment StoreEntitySet="FabScopes">
+                <ScalarProperty Name="Fab_scope_id" ColumnName="Fab_scope_id" />
+                <ScalarProperty Name="Fab_scope_name" ColumnName="Fab_scope_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factories">
+            <EntityTypeMapping TypeName="ProjectManagementModel.Factories">
+              <MappingFragment StoreEntitySet="Factories">
+                <ScalarProperty Name="Factory_request_id" ColumnName="Factory_request_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Factory_requestor_id" ColumnName="Factory_requestor_id" />
+                <ScalarProperty Name="Assigned_pm" ColumnName="Assigned_pm" />
+                <ScalarProperty Name="Site_name" ColumnName="Site_name" />
+                <ScalarProperty Name="Program_name" ColumnName="Program_name" />
+                <ScalarProperty Name="Project_name" ColumnName="Project_name" />
+                <ScalarProperty Name="Project_phase" ColumnName="Project_phase" />
+                <ScalarProperty Name="Request_date" ColumnName="Request_date" />
+                <ScalarProperty Name="Expected_date" ColumnName="Expected_date" />
+                <ScalarProperty Name="Project_budget" ColumnName="Project_budget" />
+                <ScalarProperty Name="Project_type" ColumnName="Project_type" />
+                <ScalarProperty Name="Factory_name" ColumnName="Factory_name" />
+                <ScalarProperty Name="Total_number_bays" ColumnName="Total_number_bays" />
+                <ScalarProperty Name="Total_number_ports_per_bay" ColumnName="Total_number_ports_per_bay" />
+                <ScalarProperty Name="Total_number_copper_ports_per_bay" ColumnName="Total_number_copper_ports_per_bay" />
+                <ScalarProperty Name="Total_number_fiber_ports_per_bay" ColumnName="Total_number_fiber_ports_per_bay" />
+                <ScalarProperty Name="Speed_connection" ColumnName="Speed_connection" />
+                <ScalarProperty Name="Fab_type" ColumnName="Fab_type" />
+                <ScalarProperty Name="Square_footage" ColumnName="Square_footage" />
+                <ScalarProperty Name="Project_description" ColumnName="Project_description" />
+                <ScalarProperty Name="Scope" ColumnName="Scope" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Labs">
+            <EntityTypeMapping TypeName="ProjectManagementModel.Labs">
+              <MappingFragment StoreEntitySet="Labs">
+                <ScalarProperty Name="Lab_request_id" ColumnName="Lab_request_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Lab_requestor_id" ColumnName="Lab_requestor_id" />
+                <ScalarProperty Name="Assigned_pm" ColumnName="Assigned_pm" />
+                <ScalarProperty Name="Site_name" ColumnName="Site_name" />
+                <ScalarProperty Name="Program_name" ColumnName="Program_name" />
+                <ScalarProperty Name="Project_name" ColumnName="Project_name" />
+                <ScalarProperty Name="Project_phase" ColumnName="Project_phase" />
+                <ScalarProperty Name="Request_date" ColumnName="Request_date" />
+                <ScalarProperty Name="Expected_date" ColumnName="Expected_date" />
+                <ScalarProperty Name="Project_budget" ColumnName="Project_budget" />
+                <ScalarProperty Name="Project_type" ColumnName="Project_type" />
+                <ScalarProperty Name="Lab_name" ColumnName="Lab_name" />
+                <ScalarProperty Name="Scope" ColumnName="Scope" />
+                <ScalarProperty Name="Square_footage" ColumnName="Square_footage" />
+                <ScalarProperty Name="Total_number_racks" ColumnName="Total_number_racks" />
+                <ScalarProperty Name="Total_number_ports_per_rack" ColumnName="Total_number_ports_per_rack" />
+                <ScalarProperty Name="Total_number_copper_ports_per_racks" ColumnName="Total_number_copper_ports_per_racks" />
+                <ScalarProperty Name="Total_number_fiber_ports_per_rack" ColumnName="Total_number_fiber_ports_per_rack" />
+                <ScalarProperty Name="Total_number_benches" ColumnName="Total_number_benches" />
+                <ScalarProperty Name="Total_number_ports_per_bench" ColumnName="Total_number_ports_per_bench" />
+                <ScalarProperty Name="Total_number_copper_ports_per_bench" ColumnName="Total_number_copper_ports_per_bench" />
+                <ScalarProperty Name="Total_number_fiber_ports_per_bench" ColumnName="Total_number_fiber_ports_per_bench" />
+                <ScalarProperty Name="Speed_connection" ColumnName="Speed_connection" />
+                <ScalarProperty Name="Project_description" ColumnName="Project_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LabScopes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.LabScopes">
+              <MappingFragment StoreEntitySet="LabScopes">
+                <ScalarProperty Name="Lab_scope_id" ColumnName="Lab_scope_id" />
+                <ScalarProperty Name="Lab_scope_name" ColumnName="Lab_scope_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Offices">
+            <EntityTypeMapping TypeName="ProjectManagementModel.Offices">
+              <MappingFragment StoreEntitySet="Offices">
+                <ScalarProperty Name="Office_request_id" ColumnName="Office_request_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Office_requestor_id" ColumnName="Office_requestor_id" />
+                <ScalarProperty Name="Assigned_pm" ColumnName="Assigned_pm" />
+                <ScalarProperty Name="Site_name" ColumnName="Site_name" />
+                <ScalarProperty Name="Program_name" ColumnName="Program_name" />
+                <ScalarProperty Name="Project_name" ColumnName="Project_name" />
+                <ScalarProperty Name="Project_phase" ColumnName="Project_phase" />
+                <ScalarProperty Name="Request_date" ColumnName="Request_date" />
+                <ScalarProperty Name="Expected_date" ColumnName="Expected_date" />
+                <ScalarProperty Name="Project_budget" ColumnName="Project_budget" />
+                <ScalarProperty Name="Project_type" ColumnName="Project_type" />
+                <ScalarProperty Name="Total_number_workstations" ColumnName="Total_number_workstations" />
+                <ScalarProperty Name="Total_number_ports_per_workstation" ColumnName="Total_number_ports_per_workstation" />
+                <ScalarProperty Name="Speed_connection" ColumnName="Speed_connection" />
+                <ScalarProperty Name="Total_number_workstation_copper_ports" ColumnName="Total_number_workstation_copper_ports" />
+                <ScalarProperty Name="Total_number_workstation_fiber_ports" ColumnName="Total_number_workstation_fiber_ports" />
+                <ScalarProperty Name="Number_of_auditoriums" ColumnName="Number_of_auditoriums" />
+                <ScalarProperty Name="Number_of_A_type_rooms" ColumnName="Number_of_A_type_rooms" />
+                <ScalarProperty Name="Number_of_B_type_rooms" ColumnName="Number_of_B_type_rooms" />
+                <ScalarProperty Name="Number_of_C_type_rooms" ColumnName="Number_of_C_type_rooms" />
+                <ScalarProperty Name="Number_of_Collaboration_rooms" ColumnName="Number_of_Collaboration_rooms" />
+                <ScalarProperty Name="Number_of_phonebooths" ColumnName="Number_of_phonebooths" />
+                <ScalarProperty Name="Square_footage" ColumnName="Square_footage" />
+                <ScalarProperty Name="Project_description" ColumnName="Project_description" />
+                <ScalarProperty Name="Scope" ColumnName="Scope" />
+                <ScalarProperty Name="Connection" ColumnName="Connection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfficeScopes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.OfficeScopes">
+              <MappingFragment StoreEntitySet="OfficeScopes">
+                <ScalarProperty Name="Office_scope_id" ColumnName="Office_scope_id" />
+                <ScalarProperty Name="Office_scope_name" ColumnName="Office_scope_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OtherProjects">
+            <EntityTypeMapping TypeName="ProjectManagementModel.OtherProjects">
+              <MappingFragment StoreEntitySet="OtherProjects">
+                <ScalarProperty Name="Other_request_id" ColumnName="Other_request_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Project_description" ColumnName="Project_description" />
+                <ScalarProperty Name="Other_requestor_id" ColumnName="Other_requestor_id" />
+                <ScalarProperty Name="Other_projectType" ColumnName="Other_projectType" />
+                <ScalarProperty Name="Assigned_pm" ColumnName="Assigned_pm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhaseTypes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.PhaseTypes">
+              <MappingFragment StoreEntitySet="PhaseTypes">
+                <ScalarProperty Name="Phase_id" ColumnName="Phase_id" />
+                <ScalarProperty Name="Phase_name" ColumnName="Phase_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PmProjectCost">
+            <EntityTypeMapping TypeName="ProjectManagementModel.PmProjectCost">
+              <MappingFragment StoreEntitySet="PmProjectCost">
+                <ScalarProperty Name="Project_id" ColumnName="Project_id" />
+                <ScalarProperty Name="Project_name" ColumnName="Project_name" />
+                <ScalarProperty Name="Local_area_network_systems" ColumnName="Local_area_network_systems" />
+                <ScalarProperty Name="Wide_area_network" ColumnName="Wide_area_network" />
+                <ScalarProperty Name="Wireless_Lan_Infrastructure_equipment" ColumnName="Wireless_Lan_Infrastructure_equipment" />
+                <ScalarProperty Name="Indetification_for_com_systems" ColumnName="Indetification_for_com_systems" />
+                <ScalarProperty Name="Com_grounding" ColumnName="Com_grounding" />
+                <ScalarProperty Name="Cable_Trays" ColumnName="Cable_Trays" />
+                <ScalarProperty Name="Handholes_and_manholes" ColumnName="Handholes_and_manholes" />
+                <ScalarProperty Name="Com_cabinets" ColumnName="Com_cabinets" />
+                <ScalarProperty Name="Racks" ColumnName="Racks" />
+                <ScalarProperty Name="Frames" ColumnName="Frames" />
+                <ScalarProperty Name="Enclosures" ColumnName="Enclosures" />
+                <ScalarProperty Name="Campus_distribution_subsystems" ColumnName="Campus_distribution_subsystems" />
+                <ScalarProperty Name="Vertical_distribution_subsystem" ColumnName="Vertical_distribution_subsystem" />
+                <ScalarProperty Name="Com_horizontal_cabling" ColumnName="Com_horizontal_cabling" />
+                <ScalarProperty Name="Com_circuits" ColumnName="Com_circuits" />
+                <ScalarProperty Name="Com_patch_cords" ColumnName="Com_patch_cords" />
+                <ScalarProperty Name="Station_cords" ColumnName="Station_cords" />
+                <ScalarProperty Name="Cross_connect_wires" ColumnName="Cross_connect_wires" />
+                <ScalarProperty Name="Multimedia_equipment" ColumnName="Multimedia_equipment" />
+                <ScalarProperty Name="PBX_switch_processor" ColumnName="PBX_switch_processor" />
+                <ScalarProperty Name="Expansion_phone_network" ColumnName="Expansion_phone_network" />
+                <ScalarProperty Name="Desk_phones" ColumnName="Desk_phones" />
+                <ScalarProperty Name="Public_wall_phones" ColumnName="Public_wall_phones" />
+                <ScalarProperty Name="Conferencing_phones" ColumnName="Conferencing_phones" />
+                <ScalarProperty Name="Internal_celular" ColumnName="Internal_celular" />
+                <ScalarProperty Name="Printers" ColumnName="Printers" />
+                <ScalarProperty Name="Training_pcs" ColumnName="Training_pcs" />
+                <ScalarProperty Name="Servers" ColumnName="Servers" />
+                <ScalarProperty Name="Servers_racks" ColumnName="Servers_racks" />
+                <ScalarProperty Name="A_E_desing_consultants" ColumnName="A_E_desing_consultants" />
+                <ScalarProperty Name="QC_Consultants" ColumnName="QC_Consultants" />
+                <ScalarProperty Name="Project_management_coordination" ColumnName="Project_management_coordination" />
+                <ScalarProperty Name="Temporary_communications" ColumnName="Temporary_communications" />
+                <ScalarProperty Name="Telecom_cabling_demoliton" ColumnName="Telecom_cabling_demoliton" />
+                <ScalarProperty Name="Other_expenses" ColumnName="Other_expenses" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectNames">
+            <EntityTypeMapping TypeName="ProjectManagementModel.ProjectNames">
+              <MappingFragment StoreEntitySet="ProjectNames">
+                <ScalarProperty Name="Project_id" ColumnName="Project_id" />
+                <ScalarProperty Name="Project_name" ColumnName="Project_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectTypes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.ProjectTypes">
+              <MappingFragment StoreEntitySet="ProjectTypes">
+                <ScalarProperty Name="Project_type_id" ColumnName="Project_type_id" />
+                <ScalarProperty Name="Project_type_name" ColumnName="Project_type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpeedConnectionTypes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.SpeedConnectionTypes">
+              <MappingFragment StoreEntitySet="SpeedConnectionTypes">
+                <ScalarProperty Name="Speed_connection_id" ColumnName="Speed_connection_id" />
+                <ScalarProperty Name="Speed_connection_name" ColumnName="Speed_connection_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ProjectManagementModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ProjectManagementModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="User_name" ColumnName="User_name" />
+                <ScalarProperty Name="User_type" ColumnName="User_type" />
+                <ScalarProperty Name="User_password" ColumnName="User_password" />
+                <ScalarProperty Name="User_phone" ColumnName="User_phone" />
+                <ScalarProperty Name="User_email" ColumnName="User_email" />
+                <ScalarProperty Name="User_age" ColumnName="User_age" />
+                <ScalarProperty Name="User_secure_question_1" ColumnName="User_secure_question_1" />
+                <ScalarProperty Name="User_secure_question_2" ColumnName="User_secure_question_2" />
+                <ScalarProperty Name="User_secure_question_3" ColumnName="User_secure_question_3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="ProjectManagementModel.UserTypes">
+              <MappingFragment StoreEntitySet="UserTypes">
+                <ScalarProperty Name="User_type_id" ColumnName="User_type_id" />
+                <ScalarProperty Name="User_type_name" ColumnName="User_type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

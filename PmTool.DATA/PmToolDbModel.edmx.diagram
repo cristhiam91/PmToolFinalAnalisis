@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c38c0376cd04f60b43497c60238938c" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectManagementModel.ConnectionTypes" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.DataCenters" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.DcScopes" Width="1.5" PointX="3" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.FabScopes" Width="1.5" PointX="6" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.Factories" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.Labs" Width="1.5" PointX="11.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.LabScopes" Width="1.5" PointX="9" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.Offices" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.OfficeScopes" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.OtherProjects" Width="1.5" PointX="5.25" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.PhaseTypes" Width="1.5" PointX="3" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.PmProjectCost" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.ProjectNames" Width="1.5" PointX="13.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.ProjectTypes" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.SpeedConnectionTypes" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.Users" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.UserTypes" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Offices_ConnectionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_DataCenters_DcScopes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_DataCenters_PhaseTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_DataCenters_ProjectTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_DataCenters_SpeedConnectionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_DataCenters_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_ProjectNames_DataCenters" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Factories_FabScopes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Factories_PhaseTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Factories_ProjectTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Factories_SpeedConnectionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Factories_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Labs_LabScopes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Labs_PhaseTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Labs_ProjectTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Labs_SpeedConnectionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Labs_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_ProjectNames_Labs" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Offices_OfficeScopes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Offices_ProjectTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Offices_SpeedConnectionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Offices_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_OtherProjects_ProjectTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_OtherProjects_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_ProjectNames_OtherProjects" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Users_UserTypes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

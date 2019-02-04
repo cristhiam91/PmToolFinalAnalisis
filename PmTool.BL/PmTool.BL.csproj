@@ -49,6 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DataCenterService.cs" />
+    <Compile Include="Services\FactoryService.cs" />
+    <Compile Include="Services\LaboratoryService.cs" />
+    <Compile Include="Services\OfficeService.cs" />
+    <Compile Include="Services\OtherProjectService.cs" />
+    <Compile Include="Services\PmProjectsCostService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -64,5 +71,6 @@
       <Name>PmTool.DATA</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
