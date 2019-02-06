@@ -20,5 +20,101 @@ namespace PmTool.BL.Services
             this.unitOfWork = new UnitOfWork(dbContext);
         }
 
+        public Labs GetLaboratoryProjectBydId(int laboratoryProjectId)
+        {
+            try
+            {
+                return unitOfWork.Repository<Labs>().GetById(laboratoryProjectId);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void AddLaboratoryProject(Labs laboratory)
+        {
+            try
+            {
+                unitOfWork.Repository<Labs>().Add(laboratory);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void UpdateLaboratoryProject(Labs laboratory)
+        {
+            try
+            {
+                unitOfWork.Repository<Labs>().Update(laboratory);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void DeleteLaboratoryProject(Labs laboratory)
+        {
+            try
+            {
+                unitOfWork.Repository<Labs>().Delete(laboratory);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<Labs> ListLaboratoryProjects()
+        {
+            try
+            {
+                List<Labs> theListLaboratoryProjects = unitOfWork.Repository<Labs>().GetAll().ToList();
+                return theListLaboratoryProjects;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<Labs> ListLaboratoryProjectsByAssinedPm(int userId)
+        {
+            try
+            {
+                List<Labs> theListLaboratoryProjectsByAssinedPm = unitOfWork.Repository<Labs>().FindAll(x => x.Assigned_pm == userId).ToList();
+                return theListLaboratoryProjectsByAssinedPm;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<Labs> ListLaboratoryProjectsByRequestorId(int userId)
+        {
+            try
+            {
+                List<Labs> theListLaboratoryProjectsByRequestorId = unitOfWork.Repository<Labs>().FindAll(x => x.Lab_requestor_id == userId).ToList();
+                return theListLaboratoryProjectsByRequestorId;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

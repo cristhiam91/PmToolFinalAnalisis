@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +28,16 @@ namespace PmTool.BL.Services
         /// <returns>The object data center with the id</returns>
         public DataCenters GetDataCenterById(int id)
         {
-            return unitOfWork.Repository<DataCenters>().GetById(id);
+            try
+            {
+                return unitOfWork.Repository<DataCenters>().GetById(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
    
@@ -39,20 +48,45 @@ namespace PmTool.BL.Services
 
         //}
 
-        public void AddDataCenter(DataCenters dataCenter)
+        public void AddDataCenterProject(DataCenters dataCenter)
         {
-            unitOfWork.Repository<DataCenters>().Add(dataCenter);
+            try
+            {
+                unitOfWork.Repository<DataCenters>().Add(dataCenter);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            } 
         }
 
         public void UpdateDataCenterProject(DataCenters dataCenter)
         {
-            unitOfWork.Repository<DataCenters>().Update(dataCenter);
+            try
+            {
+                unitOfWork.Repository<DataCenters>().Update(dataCenter);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }          
         }
 
         //validar
         public void DeleteDataCenterProject(DataCenters dataCenters)
         {
-            unitOfWork.Repository<DataCenters>().Delete(dataCenters);
+            try
+            {
+                unitOfWork.Repository<DataCenters>().Delete(dataCenters);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -61,21 +95,44 @@ namespace PmTool.BL.Services
         /// <returns>A list of all the data centers</returns>
         public List<DataCenters> ListAllDataCenterProjects()
         {
-            List<DataCenters> theListOfAllDataCenters = unitOfWork.Repository<DataCenters>().GetAll().ToList();
-            return theListOfAllDataCenters;
+            try
+            {
+                List<DataCenters> theListAllDataCenterProjects = unitOfWork.Repository<DataCenters>().GetAll().ToList();
+                return theListAllDataCenterProjects;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
-        public List<DataCenters> SearchDataCenterByAssignedPm(int userId)
+        public List<DataCenters> ListDataCenterByAssignedPm(int userId)
         {
-            List<DataCenters> theDataCenterByAssignedPm = unitOfWork.Repository<DataCenters>().FindAll(x=>x.Assigned_pm == userId).ToList();
-            return theDataCenterByAssignedPm;
+            try
+            {
+                List<DataCenters> theDataCenterProjectsListByAssignedPm = unitOfWork.Repository<DataCenters>().FindAll(x => x.Assigned_pm == userId).ToList();
+                return theDataCenterProjectsListByAssignedPm;
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
         }
 
-        public List<DataCenters> SearchDataCenterProjectByPm(int userId)
+        public List<DataCenters> ListDataCenterProjecByRequestorId(int userId)
         {
-            List<DataCenters> theDataCenterProjectByPm = unitOfWork.Repository<DataCenters>().FindAll(x => x.DataCenter_request_id == userId).ToList();
-            return theDataCenterProjectByPm;
+            try
+            {
+                List<DataCenters> theDataCenterProjecByRequestorId = unitOfWork.Repository<DataCenters>().FindAll(x => x.DataCenter_requestor_id == userId).ToList();
+                return theDataCenterProjecByRequestorId;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
         }
 
